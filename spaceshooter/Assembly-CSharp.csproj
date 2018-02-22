@@ -51,6 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BoundsCheck.cs" />
+     <Compile Include="Assets\Enemy.cs" />
+     <Compile Include="Assets\Enemy_0.cs" />
+     <Compile Include="Assets\Enemy_1.cs" />
      <Compile Include="Assets\Hero.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

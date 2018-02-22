@@ -1,8 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Hero.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Enemy.cs">
     <Files>
-      <File FileName="Assets\Hero.cs" Line="11" Column="25" />
+      <File FileName="Assets\Enemy.cs" Line="28" Column="16" />
+      <File FileName="Assets\Hero.cs" Line="11" Column="14" />
+      <File FileName="Assets\Enemy_0.cs" Line="13" Column="3" />
+      <File FileName="Assets\Enemy_1.cs" Line="22" Column="25" />
+      <File FileName="Assets\BoundsCheck.cs" Line="45" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
