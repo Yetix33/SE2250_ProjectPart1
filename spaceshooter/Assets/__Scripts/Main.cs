@@ -4,33 +4,48 @@ using UnityEngine;
 
 public class Main : MonoBehaviour {
 
-	public GameObject Enemy_0;
-	public GameObject Enemy_1;
+	public GameObject[] enemies;
+	public float enemySpawns = 0.5f;
+	public float enemyDefaultSpacing = 1.5f;
 
-	// Use this for initialization
-	void Start () {
-		System.Random rand = new System.Random();
+	private BoundsCheck boundCheck;
 
-		//Spawn Points
-		float topSpawnPoint = Camera.main.orthographicSize;
-		float xSpawnPoint = topSpawnPoint * Camera.main.aspect;
+	void Awake(){
+		boundCheck = GetComponent<BoundsCheck> ();
 
-		//random horizontal spawn point
-		float xSpawn = rand.Next ((int)-xSpawnPoint+5, (int)xSpawnPoint-5);
-		float xSpawn2 = rand.Next ((int)-xSpawnPoint+5, (int)xSpawnPoint-5);
-
-		//Positions
-		Vector2 pos = new Vector2 (xSpawn,topSpawnPoint);
-		Vector2 pos2 = new Vector2 (xSpawn2, topSpawnPoint); 
-
-		//Instantiate
-		Instantiate (Enemy_0, pos, Quaternion.identity);
-		Instantiate (Enemy_1, pos2, Quaternion.identity);
-
+		//Call Spawn function (in 2 seconds)
+		Invoke ("Spawn", 1f / enemySpawns);
 	}
-	
-	// Update is called once per frame
-	void Update () {
 		
+
+	public void Spawn(){
+
+		//Randomly pick an enemey type from list of enemies
+		int rng = Random.Range (0, enemies.Length);
+		print (rng);
+		//instantiate it 
+		GameObject enemy = Instantiate<GameObject> (enemies [rng]);
+
+		float enemySpacing = enemyDefaultSpacing;
+		//Random X point:
+		if (enemy.GetComponent<BoundsCheck> () != null) {
+			enemySpacing = Mathf.Abs (enemy.GetComponent<BoundsCheck> ().radius);
+		}
+
+		Vector3 pos = Vector3.zero;
+
+		float xMin = -boundCheck.camWidth + enemySpacing;
+		float xMax = boundCheck.camWidth - enemySpacing;
+
+		pos.x = Random.Range (xMin, xMax);
+		pos.y = boundCheck.camHeight + enemySpacing;
+		enemy.transform.position = pos;
+
+		//RECALL FUNCTION (keeps going)
+
+		Invoke ("Spawn", 1f / enemySpawns);
+
+
 	}
+
 }

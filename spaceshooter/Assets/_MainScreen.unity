@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 1229706315}
   - component: {fileID: 1229706314}
   - component: {fileID: 1229706318}
+  - component: {fileID: 1229706319}
   m_Layer: 0
   m_Name: _MainCamera
   m_TagString: MainCamera
@@ -324,7 +325,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
+  m_HDR: 0
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
@@ -355,8 +356,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd87ec2c9b1a76546b419ff2eae8e8fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_0: {fileID: 1056983950699808, guid: 1d85650a04b9dad449344b44a570d87c, type: 2}
-  Enemy_1: {fileID: 1000998253359734, guid: ec177b439883ee043b6a852a6213ff8a, type: 2}
+  enemies:
+  - {fileID: 1814153941242354, guid: 1d85650a04b9dad449344b44a570d87c, type: 2}
+  - {fileID: 1000998253359734, guid: ec177b439883ee043b6a852a6213ff8a, type: 2}
+  enemySpawns: 0.5
+  enemyDefaultSpacing: 1.5
+--- !u!114 &1229706319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1229706313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e4ee605a687c542a4b47290770dc34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1
+  camWidth: 0
+  camHeight: 0
+  keepOnScreen: 0
+  isOnScreen: 1
 --- !u!1 &1239728138
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +537,8 @@ MonoBehaviour:
   radius: 4
   camWidth: 0
   camHeight: 0
+  keepOnScreen: 1
+  isOnScreen: 1
 --- !u!1 &1613436955
 GameObject:
   m_ObjectHideFlags: 0
